@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local storage</title>
+    <style>
+        .parent {
+            display: flex;
+            justify-content: center;
+            background-color: pink;
+            margin: auto;
+            width: 400px;
+            height: 400px;
+        }
+
+        form {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .children {
+            margin: 30px;
+        }
+    </style>
+    <script src="storage.js"></script>
+</head>
+
+<body>
+
+    <div class='parent'>
+        <form onsubmit="return false">
+            <div class="children">
+                <label for="name">Name</label>
+                <input type="text" name="Name" id="name">
+            </div>
+            <div class="children">
+                <label for="address">Address</label>
+                <input type="text" name="address" id="address">
+            </div>
+
+            <input type="button"  class='adduser' value="Add User"></input>
+        </form>
+
+        <div class="details">
+
+        </div>
+    </div>
+
+</body>
+
+</html>
