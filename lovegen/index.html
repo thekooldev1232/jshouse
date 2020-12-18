@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Generator</title>
+    <style>
+        .lovegen {
+            height: 100vh;
+            background-color: bisque;
+            margin: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+        }
+
+        .lovegen * {
+            width: 400px;
+            margin: 10px;
+        }
+
+        .lovegen h1 {
+            color: darkmagenta
+        }
+
+        .lovegen #inputval {
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .lovegen #inputbtn {
+            background-color: orange;
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .lovegen.showhearts {
+            background-image: url('./heart.png');
+            animation: moveinout 0.5s ease-in-out 0.4s;
+        }
+
+        @keyframes moveinout {
+            0% {
+                transform: scale(0.7);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="lovegen">
+
+        <div class="results">
+            <div class="sai">sai :<span id='saicount'></span></div>
+            <div class="ak">ak :<span id='akcount'></span></div>
+        </div>
+        <h1>Love Generator</h1>
+        <input type="text" placeholder="" value='' id='inputval'>
+        <input type="button" value='generate' id='inputbtn'>
+    </div>
+
+    <script>
+        let saicount = document.getElementById('saicount');
+        let akcount = document.getElementById('akcount');
+        let sc = 0, ak = 0;
+        function loveGenerator() {
+            n = Math.floor(Math.random() * 10);
+            switch (true) {
+                case (n > 4):
+                    akcount.innerHTML = ++ak;
+                    return 'I love you Baba ❤️💃 \n';
+                    break;
+                default:
+                    saicount.innerHTML = ++sc;
+                    return 'I love you AK ❤️🕺 \n';
+                    break;
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            let btn = document.getElementById('inputbtn');
+            btn.addEventListener('click', () => {
+                document.getElementById('inputval').value = loveGenerator();
+                document.getElementsByClassName('lovegen')[0].classList.add('showhearts')
+                setTimeout(() => {
+                    document.getElementById('inputval').value = '';
+                    document.getElementsByClassName('lovegen')[0].classList.remove('showhearts')
+                }, 1500)
+            });
+        })
+
+    </script>
+</body>
+
+</html>

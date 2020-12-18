@@ -1,5 +1,4 @@
 
-
 // #############
 
 /* Currying and Composition are pretty much the same -> they give you a function and you can execute with the URLSearchParams */
